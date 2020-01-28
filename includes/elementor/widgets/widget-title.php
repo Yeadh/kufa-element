@@ -104,7 +104,7 @@ class kufa_Widget_Title extends Widget_Base {
       ?>
       <div class="section-title <?php echo esc_attr($settings['align']).' '.esc_attr($settings['white']); ?>">
            <span <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></span>
-           <h1 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h1>
+           <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
       </div>
       <?php
    }
