@@ -50,41 +50,6 @@ class kufa_Widget_Title extends Widget_Base {
          ]
       );
 
-      $this->add_control(
-         'align',
-         [
-            'label' => __( 'Alignment', 'kufa' ),
-            'type' => \Elementor\Controls_Manager::CHOOSE,
-            'options' => [
-               'text-left' => [
-                  'title' => __( 'Left', 'kufa' ),
-                  'icon' => 'fa fa-align-left',
-               ],
-               'text-center' => [
-                  'title' => __( 'Center', 'kufa' ),
-                  'icon' => 'fa fa-align-center',
-               ],
-               'text-right' => [
-                  'title' => __( 'Right', 'kufa' ),
-                  'icon' => 'fa fa-align-right',
-               ],
-            ],
-            'default' => 'text-center',
-            'toggle' => true
-         ]
-      );
-
-      $this->add_control(
-         'white',
-         [
-            'label' => __( 'White title', 'kufa' ),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'label_on' => __( 'On', 'kufa' ),
-            'label_off' => __( 'Off', 'kufa' ),
-            'return_value' => 'white',
-            'default' => 'no',   
-         ]
-      );
       
       $this->end_controls_section();
 
@@ -99,12 +64,11 @@ class kufa_Widget_Title extends Widget_Base {
       //Inline Editing
       $this->add_inline_editing_attributes( 'title', 'basic' );
       $this->add_inline_editing_attributes( 'sub-title', 'basic' );
-      $this->add_inline_editing_attributes( 'border', 'basic' );
       
       ?>
-      <div class="section-title <?php echo esc_attr($settings['align']).' '.esc_attr($settings['white']); ?>">
-           <span <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></span>
-           <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
+      <div class="section-title text-center">
+         <span <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></span>
+         <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
       </div>
       <?php
    }
