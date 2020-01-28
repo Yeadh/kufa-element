@@ -50,7 +50,7 @@ class kufa_Widget_Testimonials extends Widget_Base {
          [
             'label' => __( 'Name', 'kufa' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('nancy pocker','kufa')
+            'default' => __('Nancy pocker','kufa')
             
          ]
       );
@@ -65,31 +65,11 @@ class kufa_Widget_Testimonials extends Widget_Base {
       );
 
       $repeater->add_control(
-         'rating',
-         [
-            'label' => __( 'Rating', 'kufa' ),
-            'type' => Controls_Manager::SLIDER,
-            'size_units' => [ 'px', '%' ],
-              'range' => [
-                '%' => [
-                  'min' => 1,
-                  'max' => 5,
-                  'step' => 1,
-                ]
-              ],
-              'default' => [
-                'unit' => '%',
-                'size' => 5,
-              ],
-         ]
-      );
-
-      $repeater->add_control(
          'testimonial',
          [
             'label' => __( 'Testimonial', 'kufa' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Awesome Product highly recomended Lorem ipsum dolor alamet, nsectetur mayalipol tempor eiusmod tempor  recomended Lorem ipsum dolor alamet, nsec tetur mayalipol tempor eiusmod tempor incubto ectetur alasiqua enim ad nim veniam, quis nostrud ullam consectetur mayalipol','kufa')
+            'default' => __('An event is a message sent by an object to signal the occur rence of an action. The action can causd user interaction such as a button click, or it can result','kufa')
          ]
       );
 
