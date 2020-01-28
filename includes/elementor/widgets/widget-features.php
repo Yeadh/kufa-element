@@ -33,27 +33,12 @@ class kufa_Widget_Features extends Widget_Base {
       );
 
       $this->add_control(
-         'style',
-         [
-            'label' => __( 'Service Style', 'kufa' ),
-            'type' => \Elementor\Controls_Manager::SELECT,
-            'default' => 'center',
-            'options' => [
-               'center'  => __( 'Center Icon', 'kufa' ),
-               'left' => __( 'Left Icon', 'kufa' ),
-            ],
-         ]
-      );
-      
-
-      $this->add_control(
         'feature_icon',
         [
           'label' => __( 'Feature Icon', 'kufa' ),
           'type' => \Elementor\Controls_Manager::ICONS,
           'default' => [
-            'value' => 'fas fa-star',
-            'library' => 'solid',
+            'value' => 'fab fa-react'
           ],
         ]
       );
@@ -62,7 +47,7 @@ class kufa_Widget_Features extends Widget_Base {
          'feature_title', [
             'label' => __( 'Feature Title', 'kufa' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => 'Market Analysis',
+            'default' => 'Creative Design',
          ]
       );
 
@@ -70,7 +55,7 @@ class kufa_Widget_Features extends Widget_Base {
          'feature_text', [
             'label' => __( 'Feature Text', 'kufa' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => 'Orem Ipsum is simply dummy text the printing and typesetting industry sum has been the industrys',
+            'default' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.',
          ]
       );
 
@@ -84,33 +69,11 @@ class kufa_Widget_Features extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <?php 
-      if ( $settings['style'] == 'center' ){ ?>
-
-      <div class="single-features text-center">
-        <div class="features-icon mb-25">
-            <?php \Elementor\Icons_Manager::render_icon( $settings['feature_icon'], [ 'aria-hidden' => 'true' ] ); ?>
-        </div>
-        <div class="features-content">
-            <h4><?php echo esc_html( $settings['feature_title'] ) ?></h4>
-            <p><?php echo esc_html( $settings['feature_text'] ) ?></p>
-        </div>
+      <div class="icon_box_01">
+        <?php \Elementor\Icons_Manager::render_icon( $settings['feature_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+        <h3><?php echo esc_html( $settings['feature_title'] ) ?></h3>
+        <p><?php echo esc_html( $settings['feature_text'] ) ?></p>
       </div>
-
-      <?php } elseif( $settings['style'] == 'left' ) { ?>
-
-      <div class="s-single-features">
-         <div class="s-features-icon">
-            <?php \Elementor\Icons_Manager::render_icon( $settings['feature_icon'], [ 'aria-hidden' => 'true' ] ); ?>
-         </div>
-         <div class="features-content">
-             <h5><?php echo esc_html( $settings['feature_title'] ) ?></h5>
-            <p><?php echo esc_html( $settings['feature_text'] ) ?></p>
-         </div>
-      </div>
-
-      <?php } ?>
-
 
     <?php }
  

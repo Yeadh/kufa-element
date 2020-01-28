@@ -32,17 +32,15 @@ class kufa_Widget_Counter extends Widget_Base {
          ]
       );
 
-      $counter = new \Elementor\Repeater();
-
-      $counter->add_control(
+      $this->add_control(
          'icon',
          [
             'label' => __( 'Icon', 'kufa' ),
-            'type' => \Elementor\Controls_Manager::MEDIA
+            'type' => \Elementor\Controls_Manager::ICONS
          ]
       );
 
-      $counter->add_control(
+      $this->add_control(
          'count',
          [
             'label' => __( 'Count', 'kufa' ),
@@ -50,22 +48,11 @@ class kufa_Widget_Counter extends Widget_Base {
          ]
       );
 
-      $counter->add_control(
+      $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'kufa' ),
             'type' => \Elementor\Controls_Manager::TEXT
-         ]
-      );
-
-      $this->add_control(
-         'counter',
-         [
-            'label' => __( 'Counter', 'kufa' ),
-            'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $counter->get_controls(),
-            'title_field' => '{{title}}',
-
          ]
       );
 
@@ -80,25 +67,15 @@ class kufa_Widget_Counter extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <section class="counter-area inner-counter-bg counter-bg pt-100 pb-50" data-background="<?php echo get_template_directory_uri() ?>/images/counter_bg.jpg">
-         <div class="container">
-           <div class="row">
-            <?php foreach (  $settings['counter'] as $counter_single ): ?>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="single-counter text-center mb-50">
-                       <div class="counter-icon">
-                           <img src="<?php echo $counter_single['icon']['url'] ?>" alt="img">
-                       </div>
-                       <div class="counter-content">
-                           <h2 class="count"><?php echo $counter_single['count'] ?></h2>
-                           <span><?php echo $counter_single['title'] ?></span>
-                       </div>
-                   </div>
-               </div>
-            <?php endforeach; ?>
-           </div>
-         </div>
-      </section>
+      <div class="fact-box text-center mb-50">
+          <div class="fact-icon">
+              <?php \Elementor\Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
+          </div>
+          <div class="fact-content">
+              <h2><span class="count"><?php echo $settings['count'] ?></span></h2>
+              <span><?php echo $settings['title'] ?></span>
+          </div>
+      </div>
 
       <?php
    }

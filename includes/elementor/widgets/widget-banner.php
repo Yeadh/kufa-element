@@ -77,6 +77,48 @@ class kufa_Widget_Banner extends Widget_Base {
          ]
       );
 
+
+      $social = new \Elementor\Repeater();
+
+      $social->add_control(
+         'social_icon', [
+            'label' => __( 'Icon', 'kufa' ),
+            'type' => \Elementor\Controls_Manager::ICON,
+            'default' => 'fa fa-facebook'
+         ]
+      );
+
+      $social->add_control(
+         'social_url', [
+            'label' => __( 'URL', 'kufa' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#'
+         ]
+      );
+
+      $this->add_control(
+         'social',
+         [
+            'label' => __( 'Repeater List', 'kufa' ),
+            'type' => \Elementor\Controls_Manager::REPEATER,
+            'fields' => $social->get_controls(),
+            'default' => [
+               [
+                  'social_icon' => 'fa fa-facebook',
+                  'social_url' => '#'
+               ],
+               [
+                  'social_icon' => 'fa fa-twitter',
+                  'social_url' => '#'
+               ],
+               [
+                  'social_icon' => 'fa fa-linkedin',
+                  'social_url' => '#'
+               ]
+            ]
+         ]
+      );
+
       $this->end_controls_section();
 
    }
@@ -86,31 +128,39 @@ class kufa_Widget_Banner extends Widget_Base {
       // get our input from the widget settings.
        
       $settings = $this->get_settings_for_display(); ?>
-        
-      <section class="slider-area fix">
-        <div class="container">
-            <div class="s-slider-overflow">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-6">
-                        <div class="slider-content s-slider-content mt-60">
-                            <h1 class="wow fadeInUp" data-wow-delay="0.2s"><?php echo $settings['title'] ?></h1>
-                            <div class="row">
-                              <div class="col-lg-10">
-                                <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo esc_html( $settings['description'] ) ?></p>
-                              </div>
-                            </div>
-                            <a href="<?php echo esc_url( $settings['btn_url'] ) ?>" class="btn wow fadeInUp" data-wow-delay="0.6s"><?php echo esc_html( $settings['btn_text'] ) ?></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-lg-6 d-none d-lg-block text-right">
-                        <div class="s-slider-img position-relative wow fadeInRight" data-wow-delay="0.6s">
-                            <img src="<?php echo esc_url( $settings['banner_image']['url'] ) ?>" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+      <!-- banner-area -->
+      <section id="home" class="banner-area banner-bg fix">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-xl-7 col-lg-6">
+                      <div class="banner-content">
+                          <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
+                          <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $settings['title'] ?></h2>
+                          <p class="wow fadeInUp" data-wow-delay="0.6s"><?php echo esc_html( $settings['description'] ) ?></p>
+                          <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
+                              <ul>
+                                 <?php 
+                                    foreach (  $settings['social'] as $index => $social_profile ) { ?>
+                                    <li class="list-inline-item"><a href="<?php echo esc_url( $social_profile['social_url'] ) ?>"><i class="<?php echo esc_attr($social_profile['social_icon']) ?>"></i></a></li>
+                                 <?php 
+                                 } ?>
+                              </ul>
+                          </div>
+                          <a href="<?php echo esc_url( $settings['btn_url'] ) ?>" class="btn wow fadeInUp" data-wow-delay="1s"><?php echo esc_html( $settings['btn_text'] ) ?></a>
+                      </div>
+                  </div>
+                  <div class="col-xl-5 col-lg-6 d-none d-lg-block">
+                      <div class="banner-img text-right">
+                          <img src="<?php echo esc_url( $settings['banner_image']['url'] ) ?>" alt="img">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="banner-shape"><img class="rotateme" src="<?php echo get_template_directory_uri() ?>/images/dot_circle.png" alt="img"></div>
       </section>
+      <!-- banner-area-end -->
 
       <?php
    }

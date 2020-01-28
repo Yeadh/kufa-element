@@ -114,40 +114,22 @@ class kufa_Widget_Testimonials extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-4 col-md-4">
-              <div class="testimonial-active">
-                <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
-                  <div class="testimonial-img">
-                      <img src="<?php echo esc_url( $testimonial_single['image']['url'] ); ?>" alt="icon">
+
+      <div class="testimonial-active">
+          <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
+          <div class="single-testimonial text-center">
+              <div class="testi-avatar">
+                  <img src="<?php echo esc_url( $testimonial_single['image']['url'] ); ?>" alt="<?php echo esc_attr($testimonial_single['name']); ?>">
+              </div>
+              <div class="testi-content">
+                  <h4><?php echo esc_html($testimonial_single['testimonial']); ?></h4>
+                  <div class="testi-avatar-info">
+                      <h5><?php echo esc_html($testimonial_single['name']); ?></h5>
+                      <span><?php echo esc_html($testimonial_single['designation']); ?></span>
                   </div>
-                <?php endforeach; ?>
               </div>
           </div>
-          <div class="col-lg-7 col-md-8">
-              <div class="testimonial-nav">
-                <?php foreach (  $settings['testimonial_list'] as $testimonial_single ): ?>
-                  <div class="testimonial-content">
-                      <i class="fa fa-qoute"></i>
-                      <p><?php echo esc_html($testimonial_single['testimonial']); ?></p>
-                      <div class="testi-bottom">
-                      <div class="client-info">
-                          <h4><?php echo esc_html($testimonial_single['name']); ?></h4>
-                          <span><?php echo esc_html($testimonial_single['designation']); ?></span>
-                      </div>
-                    
-                      <ul class="list-inline">
-                       <?php for ($i=0; $i < $testimonial_single['rating']['size']; $i++) { ?>
-                         <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                       <?php } ?>
-                      </ul>
-                    </div>
-                  </div>
-                <?php endforeach; ?>
-              </div>
-          </div>
-        </div>
+          <?php endforeach; ?>
       </div>
 
    <?php }
