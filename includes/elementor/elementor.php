@@ -56,6 +56,7 @@ class kufa_ElementorCustomElement {
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-newsletter.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-testimonials.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-blog.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-skils.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-pricing.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-button.php');
       }
