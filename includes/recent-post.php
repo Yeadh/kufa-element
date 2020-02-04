@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Add Recent Post Widget.
  * @package kufa
