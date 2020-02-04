@@ -57,31 +57,16 @@ if( !class_exists('kufa_Recent_Post') ){
 
 				?>
 				
-
-				<ul class="widget-recent-post">
-                <?php while($posts->have_posts()) : $posts->the_post();  ?>
-	               	<li>
-	               		<div class="widget-recent-post-thumb">
-							<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'kufa-77x64' ); ?></a>
-	               		</div>
-	               		<div class="widget-recent-content">	               			
-                            <span><i class="far fa-clock"></i><?php echo get_the_date() ?></span>
-                            <h6><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 4, '.' ); ?></a></h6>
-                        </div>
-	                </li>
-				<?php endwhile; ?>
-                </ul>
-
 				<div class="rc-post">
 				    <ul>
 				    <?php while($posts->have_posts()) : $posts->the_post();  ?>
 				        <li>
 				            <div class="rc-post-thumb">
-				                <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'kufa-100x75' ); ?></a>
+				                <a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'kufa-90x78' ); ?></a>
 				            </div>
 				            <div class="rc-post-content">
-				            	<span><?php echo get_the_date() ?></span>
 				                <h6><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h6>
+				            	<span><?php echo get_the_date() ?></span>
 				            </div>
 				        </li>
 				    <?php endwhile; ?>
