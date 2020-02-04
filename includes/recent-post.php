@@ -105,10 +105,12 @@ if( !class_exists('kufa_Recent_Post') ){
 
 		public function form( $instance ) {
 		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-		$show_item    = isset( $instance['show_item'] ) ? absint( $instance['show_item'] ) : 4;
-	?>
-		<p><label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php echo esc_html__( 'Title:','kufa' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'title' )); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
+		$show_item    = isset( $instance['show_item'] ) ? absint( $instance['show_item'] ) : 4; ?>
+		
+		<p>
+			<label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php echo esc_html__( 'Title:','kufa' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'title' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'title' )); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		</p>
 		
 		
 		<p>
