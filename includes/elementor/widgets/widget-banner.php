@@ -44,6 +44,15 @@ class kufa_Widget_Banner extends Widget_Base {
       );
 
       $this->add_control(
+         'subtitle',
+         [
+            'label' => __( 'Sub title', 'kufa' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => __('HELLO!','kufa')
+         ]
+      );
+
+      $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'kufa' ),
@@ -51,6 +60,7 @@ class kufa_Widget_Banner extends Widget_Base {
             'default' => __('Thinking Software High Quality','kufa')
          ]
       );
+
 
       $this->add_control(
          'description',
@@ -63,7 +73,7 @@ class kufa_Widget_Banner extends Widget_Base {
 
       $this->add_control(
          'btn_text', [
-            'label' => __( 'Text', 'kufa' ),
+            'label' => __( 'Button', 'kufa' ),
             'type' => \Elementor\Controls_Manager::TEXT,
             'default' => __('get started','kufa')
          ]
@@ -83,8 +93,10 @@ class kufa_Widget_Banner extends Widget_Base {
       $social->add_control(
          'social_icon', [
             'label' => __( 'Icon', 'kufa' ),
-            'type' => \Elementor\Controls_Manager::ICON,
-            'default' => 'fa fa-facebook'
+            'type' => \Elementor\Controls_Manager::ICONS,
+            'default' => [
+              'value' => 'fab fa-react'
+            ],
          ]
       );
 
@@ -136,14 +148,18 @@ class kufa_Widget_Banner extends Widget_Base {
               <div class="row align-items-center">
                   <div class="col-xl-7 col-lg-6">
                       <div class="banner-content">
-                          <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
+                          <h6 class="wow fadeInUp" data-wow-delay="0.2s"><?php echo $settings['subtitle'] ?></h6>
                           <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $settings['title'] ?></h2>
                           <p class="wow fadeInUp" data-wow-delay="0.6s"><?php echo esc_html( $settings['description'] ) ?></p>
                           <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                               <ul>
                                  <?php 
                                     foreach (  $settings['social'] as $index => $social_profile ) { ?>
-                                    <li class="list-inline-item"><a href="<?php echo esc_url( $social_profile['social_url'] ) ?>"><i class="<?php echo esc_attr($social_profile['social_icon']) ?>"></i></a></li>
+                                    <li class="list-inline-item">
+                                      <a href="<?php echo esc_url( $social_profile['social_url'] ) ?>">
+                                        <?php \Elementor\Icons_Manager::render_icon( $social_profile['social_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+                                      </a>
+                                    </li>
                                  <?php 
                                  } ?>
                               </ul>
