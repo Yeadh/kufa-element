@@ -38,21 +38,14 @@ if ( ! function_exists('kufa_custom_post_type') ) {
             'rewrite'            => array( 'slug' => 'portfolio' ),
             'supports'           => array( 'title', 'editor', 'thumbnail' )
         ));
-
-        // portfolio taxonomy
-        register_taxonomy(
-            'portfolio_category',
-            'portfolio',
-            array(
-                'labels' => array(
-                    'name' => __( 'Portfolio Category', 'kufa' ),
-                    'add_new_item'      => __( 'Add New Category', 'kufa' ),
-                ),
-                'hierarchical' => true,
-                'show_admin_column'     => true
-        ));
     }
 
     add_action( 'init', 'kufa_custom_post_type' );
 
 }
+
+function kufa_add_tags_categories() {
+    register_taxonomy_for_object_type('category', 'portfolio');
+    register_taxonomy_for_object_type('post_tag', 'portfolio');
+}
+add_action('init', 'kufa_add_tags_categories');
