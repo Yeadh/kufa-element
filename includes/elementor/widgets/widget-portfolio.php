@@ -58,7 +58,7 @@ class kufa_Widget_portfolio extends Widget_Base {
                   <?php the_post_thumbnail('kufa-400x570') ?>
                </div>
                <div class="speaker-overlay">
-                  <span><?php echo the_category() ?></span>
+                  <span><?php echo get_the_category() ?></span>
                   <h4><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h4>
                   <a href="<?php the_permalink() ?>" class="arrow-btn"><?php echo esc_html__( 'More information', 'kufa' ) ?> <span></span></a>
                </div>
