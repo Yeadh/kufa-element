@@ -55,7 +55,7 @@ class kufa_Widget_portfolio extends Widget_Base {
          <div class="col-lg-4 col-md-6 pitem">
              <div class="speaker-box">
                <div class="speaker-thumb">
-                  <?php the_post_thumbnail() ?>
+                  <?php the_post_thumbnail('kufa-400x570') ?>
                </div>
                <div class="speaker-overlay">
                   <span><?php echo the_category() ?></span>
